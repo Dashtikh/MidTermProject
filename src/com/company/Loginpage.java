@@ -1,16 +1,15 @@
 package com.company;
 
 import javax.swing.*;
+import java.awt.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class Loginpage {
-    public Loginpage() {
-        JFrame jFrame = new JFrame("Login Page");
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jFrame.setSize(400,600);
-        jFrame.setLocationRelativeTo(null);
-        jFrame.setVisible(true);
 
 
-    }
+
 
 }

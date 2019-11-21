@@ -2,40 +2,56 @@ package com.company;
 
 import javax.swing.*;
 import java.awt.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class Main {
 
+    private String name;
+    private int a;
+    private int b;
+
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        /*Class.forName("oracle.jdbc.driver.OracleDriver");
-        Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "Dashtikh","dashti1565");
-        PreparedStatement preparedStatement = connection.prepareStatement("insert into Users (id,username,password) values (?,?,?)");
-        preparedStatement.setLong(1, 2);
-        preparedStatement.setString(2, "parham");
-        preparedStatement.setLong(3, 1234);
-        preparedStatement.executeUpdate();
-        preparedStatement.close();
-        connection.close();*/
-        //SwingUtilities.invokeLater(()-> new Main().Startup());
-        SwingUtilities.invokeLater(()-> new Loginpage());
+
+
+        SwingUtilities.invokeLater(() -> new Main().LoginStartUp());
 
     }
 
+    public void LoginStartUp() {
 
-    public void Startup(){
-        JLabel greeting = new JLabel("hello world",JLabel.CENTER);
+        JTextField username = new JTextField();
+        JPasswordField password = new JPasswordField();
+        JTextField uname = new JTextField();
+        JTextField p = new JTextField();
+        JFrame jFrame = new JFrame("Login Page");
+        username.setBorder(BorderFactory.createTitledBorder("Username"));
+        password.setBorder(BorderFactory.createTitledBorder("password"));
+        uname.setBorder(BorderFactory.createTitledBorder("choose Username"));
+        p.setBorder(BorderFactory.createTitledBorder("choose password"));
+        JButton btnlogin = new JButton("button");
+        JButton btncreateuser = new JButton("create user !");
+        JPanel mainpanel = new JPanel(new GridLayout(0, 1, 8, 8));
+        mainpanel.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
+        mainpanel.add(username);
+        mainpanel.add(password);
+        mainpanel.add(btnlogin);
+        mainpanel.add(uname);
+        mainpanel.add(p);
+        mainpanel.add(btncreateuser);
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.setSize(400, 400);
+        jFrame.setLocationRelativeTo(null);
+        jFrame.setVisible(true);
+        jFrame.add(mainpanel);
+        ShoppingPage shoppingPage = new ShoppingPage();
+        btnlogin.addActionListener(e -> jFrame.setVisible(false));
+        btnlogin.addActionListener(e->shoppingPage.visiblity(true));
 
-        JFrame frame = new JFrame("Restaurant Management");
-        frame.setIconImage(Toolkit.getDefaultToolkit().getImage(Main.class.getResource("45332.PNG")));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add(greeting);
-        frame.setSize(1080,720);
-        frame.setVisible(true);
-        frame.setLocationRelativeTo(null);
+
 
 
     }
 }
+
+
