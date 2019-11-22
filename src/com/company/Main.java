@@ -5,6 +5,8 @@ import java.awt.*;
 import java.sql.SQLException;
 import java.util.concurrent.atomic.AtomicReference;
 
+import static javax.swing.JOptionPane.showMessageDialog;
+
 public class Main {
 
     private String name;
@@ -54,6 +56,8 @@ public class Main {
         jFrame.add(mainpanel);
 
         btnlogin.addActionListener(e->Usernamesender() );
+        btncreateuser.addActionListener(e->jFrame.setVisible(false));
+        btncreateuser.addActionListener(e->shoppingPage.visiblity(true));
 
 
 
@@ -70,6 +74,8 @@ public class Main {
             jFrame.setVisible(false);
             shoppingPage.visiblity(true);
 
+        }else {
+            showMessageDialog(null, "Incorrect user/pass");
         }
 
 
