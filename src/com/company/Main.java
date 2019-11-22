@@ -10,27 +10,35 @@ public class Main {
     private String name;
     private int a;
     private int b;
+    JTextField username = new JTextField();
+    JPasswordField password = new JPasswordField();
+    Loginpage loginpage = new Loginpage();
+    JButton btnlogin = new JButton("Login");
+    JButton btncreateuser = new JButton("create user !");
+    ShoppingPage shoppingPage = new ShoppingPage();
+    JFrame jFrame = new JFrame("Login Page");
+
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
 
-
+        ShoppingPage shoppingPage = new ShoppingPage();
         SwingUtilities.invokeLater(() -> new Main().LoginStartUp());
+
 
     }
 
     public void LoginStartUp() {
 
-        JTextField username = new JTextField();
-        JPasswordField password = new JPasswordField();
+
+
         JTextField uname = new JTextField();
         JTextField p = new JTextField();
-        JFrame jFrame = new JFrame("Login Page");
+
         username.setBorder(BorderFactory.createTitledBorder("Username"));
         password.setBorder(BorderFactory.createTitledBorder("password"));
         uname.setBorder(BorderFactory.createTitledBorder("choose Username"));
         p.setBorder(BorderFactory.createTitledBorder("choose password"));
-        JButton btnlogin = new JButton("button");
-        JButton btncreateuser = new JButton("create user !");
+
         JPanel mainpanel = new JPanel(new GridLayout(0, 1, 8, 8));
         mainpanel.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
         mainpanel.add(username);
@@ -44,14 +52,30 @@ public class Main {
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
         jFrame.add(mainpanel);
-        ShoppingPage shoppingPage = new ShoppingPage();
-        btnlogin.addActionListener(e -> jFrame.setVisible(false));
-        btnlogin.addActionListener(e->shoppingPage.visiblity(true));
+
+        btnlogin.addActionListener(e->Usernamesender() );
+
+
 
 
 
 
     }
+    public void Usernamesender(){
+        String name=username.getText();
+        if (loginpage.uCheck(name)==true)a=1;
+        String pass=password.getText();
+        if (loginpage.pCheck(pass)==true)b=1;
+        if (a+b==2){
+            jFrame.setVisible(false);
+            shoppingPage.visiblity(true);
+
+        }
+
+
+
+    }
+
 }
 
 
