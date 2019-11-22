@@ -7,10 +7,6 @@ public class ShoppingPage {
     JFrame frame = new JFrame("Restaurant Management");
     JLabel greeting = new JLabel("hello world", JLabel.CENTER);
     public void Shopping(){
-
-
-
-
     }
     public void visiblity(boolean a){
         if (a==true) {
