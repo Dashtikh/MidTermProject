@@ -5,7 +5,8 @@ import java.awt.*;
 
 public class ShoppingPage {
     JFrame frame = new JFrame("Restaurant Management");
-    JLabel greeting = new JLabel("hello world", JLabel.CENTER);
+    Icon icon = new ImageIcon("D:\\adv pro\\Learning Swing\\MidTermProject\\src\\com\\company\\bg.jpg");
+    JLabel greeting = new JLabel(icon, JLabel.CENTER);
     public void Shopping(){
     }
     public void visiblity(boolean a){
@@ -16,6 +17,7 @@ public class ShoppingPage {
             frame.setSize(1080, 720);
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
+
         }
 
     }
